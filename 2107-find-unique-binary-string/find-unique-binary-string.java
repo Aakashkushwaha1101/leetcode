@@ -1,6 +1,6 @@
 class Solution {
     private void generateBinary(int n,String s, List<String> list){
-        
+
         if(n==s.length()){
             list.add(s);
             return;
@@ -11,17 +11,11 @@ class Solution {
 
     }
     public String findDifferentBinaryString(String[] nums) {
-        List<String> list=new ArrayList<>();
-        generateBinary( nums.length,"",  list);
-
-        for(int i=0; i<nums.length; i++){
-            if(list.contains(nums[i]))
-            {
-                list.remove(nums[i]);
-            }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < nums.length; i++) {
+            sb.append(nums[i].charAt(i) == '0' ? '1' : '0');
         }
-
-        return list.get(0);
+        return sb.toString();
 
         
     }
