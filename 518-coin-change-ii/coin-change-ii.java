@@ -1,7 +1,9 @@
 class Solution {
     public int change(int amount, int[] coins) {
+        //unbounded knapsack <---- 
         int n=coins.length;
         int[][] dp=new int[n+1][amount+1];
+
         for(int i=0; i<=amount; i++){
             dp[0][i]=0;
         }
@@ -13,7 +15,7 @@ class Solution {
             for(int am=1; am<=amount; am++){
                 
                 if(coins[i-1]<=am){
-                    dp[i][am]=dp[i][am-coins[i-1]]  + dp[i-1][am];
+                    dp[i][am]=dp[i][am-coins[i-1]]  + dp[i-1][am];  //included ways + excluded ways= totalways 
                 }else{
                     dp[i][am]=dp[i-1][am];
                 }
