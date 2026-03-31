@@ -7,17 +7,19 @@ class Solution {
 
        
 
-        String key=s1 + " "+s2;
+        StringBuilder sb = new StringBuilder();
+        sb.append(s1).append(" ").append(s2);
+
+        String key = sb.toString(); 
         if(hs.containsKey(key)) return hs.get(key);
 
        
         int n=s1.length();
-       
         for(int i=1 ; i<n ; i++){
             //swap
             if(isScramble(s1.substring(0,i),s2.substring(n-i)) && 
                                 isScramble(s1.substring(i),s2.substring(0,n-i))){
-                                    hs.put(key , true);
+                                    hs.put(key, true);
                                     return true;
                                 }
             //no swap
