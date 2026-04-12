@@ -43,9 +43,9 @@ class Solution {
                 }
                 
             }
-            else{
-                st.push(nums[i]);
-            }
+            // else{
+            //     st.push(nums[i]);
+            // }
         }
         return nge;
     }
