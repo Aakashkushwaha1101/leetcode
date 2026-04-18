@@ -3,7 +3,7 @@ class Solution {
         int ans=0;
         while(n>0){
             int rem= n % 10;
-            ans= ans *10 + rem;
+            ans= ans *10 + rem;     //log n
 
             n = n/10;
         }
@@ -11,10 +11,7 @@ class Solution {
         return ans;
     }
     public int mirrorDistance(int n) {
-        int rev=reverse(n);
-
-        int res=Math.abs(n-rev);
-
-        return res;
+        
+        return Math.abs(n-reverse(n));
     }
 }
