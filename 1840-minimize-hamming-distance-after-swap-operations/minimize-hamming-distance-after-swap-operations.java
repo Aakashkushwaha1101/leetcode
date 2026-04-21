@@ -11,6 +11,17 @@ class Solution {
         int matches=0;
         for(int val : srcMap.keySet()){
             if(targetMap.containsKey(val)){
+                //to hm min isiliye le rahe kyuki freq of same element jo min hogi vhi common hogi dono me
+                /* 
+                    Component indices: {0, 1, 2}
+
+                    source = [5, 5, 3]  (at these indices)
+                    target = [5, 3, 3]  (at these indices)
+
+                    Frequency count:
+                    sourceFreq: {5: 2, 3: 1}
+                    targetFreq: {5: 1, 3: 2}
+                */
                 matches += Math.min(srcMap.get(val), targetMap.get(val));
             }
         }
@@ -31,7 +42,7 @@ class Solution {
 
     }
     public int minimumHammingDistance(int[] source, int[] target, int[][] allowedSwaps) {
-        
+        // graph --> relationship or connections  between indices by swaping
         int n=source.length;
         List<List<Integer>> adjList=new ArrayList<>();
         for(int i=0; i<n; i++){
