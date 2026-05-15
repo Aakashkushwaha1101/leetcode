@@ -1,9 +1,18 @@
 class Solution {
     public int findMin(int[] nums) {
-        int min=Integer.MAX_VALUE;
-        for(int i=0; i<nums.length; i++){
-            min=Math.min(min,nums[i]);                     //0(n)
+        int n=nums.length;
+        int l=0, r=n-1;
+
+        while(l<r){
+            int mid=(l+r)/2;
+            if(nums[mid]>nums[r]){
+                l=mid+1;
+            }else if(nums[mid]< nums[r]){
+                r=mid; //kyuki ho skta hai r hi hmara mid elem ho , dryrun for clearance
+            }
         }
-        return min;
+
+        return nums[r];
+
     }
 }
